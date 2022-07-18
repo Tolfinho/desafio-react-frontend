@@ -1,5 +1,6 @@
 //React
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 //Styles
 import styles from './Navbar.module.css';
@@ -21,19 +22,19 @@ const Navbar = () => {
         <nav className={styles.desktop}>
           <ul>
             <li>
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/">Loja</a>
+              <Link to="/">Loja</Link>
             </li>
             <li>
-              <a href="/">Contato</a>
+              <Link to="/">Contato</Link>
             </li>
             <li>
-              <a href="/">Sobre</a>
+              <Link to="/">Sobre</Link>
             </li>
             <li>
-              <a href="/">Blog</a>
+              <Link to="/">Blog</Link>
             </li>
           </ul>
         </nav>

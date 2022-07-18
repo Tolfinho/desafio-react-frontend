@@ -15,7 +15,9 @@ const Home = () => {
     const codigo = e.target.codigo.value;
     const descricao = e.target.descricao.value;
     const preco = e.target.preco.value;
-    const data = e.target.data.value;
+    const timeElapsed = Date.now();
+    let data = new Date(timeElapsed);
+    data = data.toLocaleDateString();
 
     const post = {
       codigo: codigo,

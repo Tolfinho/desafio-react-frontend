@@ -4,14 +4,21 @@ import Footer from './components/layout/Footer';
 
 import Home from './components/pages/Home';
 
+//React
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <BrowserRouter>
+        <Navbar />
 
-      <Home />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+        </Routes>
 
-      <Footer />
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

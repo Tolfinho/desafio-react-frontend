@@ -19,14 +19,21 @@ import Product8 from '../assets/product8.jpg';
 
 const ProductList = (props) => {
   const [products, setProducts] = useState([]);
-  const [seeDetails, setSeeDetails] = useState(false);
+
+  const [details, setDetails] = useState(false);
+  const [detailsId, setDetailsId] = useState('');
 
   const [edit, setEdit] = useState(false);
   const [editId, setEditId] = useState('');
 
-  const handleDetails = () => {
-    if (seeDetails) setSeeDetails(false);
-    else setSeeDetails(true);
+  const handleDetails = (id) => {
+    if (!details) {
+      setDetails(true);
+      setDetailsId(id);
+    } else {
+      setDetails(false);
+      setDetailsId('');
+    }
   };
 
   function handleDelete(id) {
@@ -51,13 +58,11 @@ const ProductList = (props) => {
     const codigo = e.target.codigo.value;
     const descricao = e.target.descricao.value;
     const preco = e.target.preco.value;
-    const data = '00/00/0000';
 
     const post = {
       codigo: codigo,
       descricao: descricao,
       preco: preco,
-      data: data,
     };
 
     await axios
@@ -68,6 +73,8 @@ const ProductList = (props) => {
         setEditId('');
       })
       .catch((err) => console.log('Falha ao atualizar o produto' + err));
+
+    alert('Editado com sucesso!');
   };
 
   //Armazena os produtos que vem do banco em 'products'
@@ -108,10 +115,12 @@ const ProductList = (props) => {
               <div>
                 <p>Código: {product.codigo}</p>
                 <p>Descrição: {product.descricao}</p>
-                <div>
-                  <p>Preço: R${product.preco}</p>
-                  <p>Data: {product.data_cadastro}</p>
-                </div>
+                {details && detailsId === product._id && (
+                  <div>
+                    <p>Preço: R${product.preco}</p>
+                    <p>Data: {product.data_cadastro}</p>
+                  </div>
+                )}
               </div>
             )}
             <div className={styles.buttons}>
@@ -119,7 +128,9 @@ const ProductList = (props) => {
                 {(edit && editId === product._id && 'Cancelar') || 'Editar'}
               </button>
               <button onClick={() => handleDelete(product._id)}>Excluir</button>
-              <button onClick={handleDetails}>Detalhes</button>
+              <button onClick={() => handleDetails(product._id)}>
+                Detalhes
+              </button>
             </div>
           </div>
         </div>
