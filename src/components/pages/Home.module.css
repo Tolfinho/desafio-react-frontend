@@ -1,0 +1,83 @@
+.home {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.home .container {
+  width: 1340px;
+  margin: 0 auto;
+  padding: 40px 0;
+  height: 100%;
+}
+
+.home .container .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home .container .top h1 {
+  font-size: 2.2em;
+  font-weight: 700;
+}
+
+.home .container .top div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.home .container .top div select {
+  border-radius: 10px;
+}
+
+.home .container .top .newProduct {
+  background: var(--black);
+  color: var(--white);
+  padding: 5px 15px;
+  font-size: 1em;
+  font-weight: 400;
+  border-radius: 5px;
+  border: 1px solid var(--black);
+  transition: 0.2s all ease-out;
+}
+
+.home .container .top .newProduct:hover {
+  background: none;
+  color: var(--black);
+}
+
+.home .container .formContainer {
+  display: none;
+}
+
+.home .container .formContainer form {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.home .container .formContainer form input {
+  font-size: 1.1em;
+  border: 1px solid var(--black);
+  border-radius: 2px;
+  width: 300px;
+  height: 40px;
+  padding: 0 10px;
+}
+
+.home .container .formContainer form input:focus {
+  outline: 2px solid #000;
+}
+
+.home .container .formContainer form button {
+  background: var(--black);
+  color: var(--white);
+  font-size: 1.1em;
+  font-weight: 500;
+  width: 100px;
+  border: 1px solid var(--black);
+  border-radius: 2px;
+}
